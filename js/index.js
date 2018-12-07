@@ -52,7 +52,7 @@ var page1 = {
 };
 var getConfig = function (callback) {
     $.ajax({
-        url: "http://116.62.126.38:3389/index.php/index/base/getHomeSign?url=" + window.location.href,
+        url: "http://116.62.126.38:3389/index.php/index/base/getHomeSign",
         type: "get",
         success: function (data) {
             callback(data);
@@ -62,6 +62,7 @@ var getConfig = function (callback) {
 function shareweixin(data) {
     var data = JSON.parse(data);
     console.log(data);
+    alert(data);
     window.wx.config({
         debug: true,
         appId: data.appId,
