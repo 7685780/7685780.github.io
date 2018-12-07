@@ -50,10 +50,64 @@ var page1 = {
         _Out("address");
     }
 };
+var getConfig = function (callback) {
+    $.ajax({
+        url: "http://www.goxueche.com/api/configdata.php",
+        type: "get",
+        success: function (data) {
+            callback(data);
+        }
+    })
+}
+function shareweixin(data) {
+    var data = JSON.parse(data);
+    console.log(data);
 
+    window.wx.config({
+        debug: true,
+        appId: data.appId,
+        timestamp: data.timestamp,
+        nonceStr: data.nonceStr,
+        signature: data.signature,
+        jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage']
+    });
+
+    wxShare();
+}
+function wxShare() {
+    //检测api是否生效
+    wx.ready(function () {
+        wx.checkJsApi({
+            jsApiList: [
+                'getNetworkType',
+                'previewImage'
+            ],
+            success: function (res) {
+                console.log(JSON.stringify(res));
+            }
+        });
+        //分享给好友
+        wx.onMenuShareAppMessage({
+            title: '我们结婚啦',
+            desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
+            link: 'http://love.ttwyx.cn',
+            imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg'
+        });
+
+        //分享到朋友圈
+        wx.onMenuShareTimeline({
+            title: '我们结婚啦',
+            desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
+            link: 'http://love.ttwyx.cn',
+            imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg'
+        });
+
+    });
+}
 
 
 $(document).ready(function () {
+    getConfig(shareweixin);
     $("#app").show();
     createSnow('', 160);
     page1.load();
@@ -251,5 +305,4 @@ $(document).ready(function () {
             $.Velocity.RunSequence(mySequence);
         });
     });
-
 });
