@@ -62,7 +62,7 @@ var getConfig = function (callback) {
 function shareweixin(data) {
     var data = JSON.parse(data);
     window.wx.config({
-        debug: false,
+        debug: true,
         appId: data.appId,
         timestamp: data.timestamp,
         nonceStr: data.nonceStr,
@@ -89,8 +89,6 @@ function wxShare() {
             desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
             link: 'http://love.ttwyx.cn', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
             imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg', // 分享图标
-            type: 'link', // 分享类型,music、video或link，不填默认为link
-            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
             success: function () {
                 // 用户点击了分享后执行的回调函数
             }
@@ -99,7 +97,6 @@ function wxShare() {
         //分享到朋友圈
         wx.onMenuShareTimeline({
             title: '我们结婚啦',
-            desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
             link: 'http://love.ttwyx.cn',
             imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg'
         });
