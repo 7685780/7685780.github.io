@@ -60,9 +60,10 @@ var getConfig = function (callback) {
     })
 }
 function shareweixin(data) {
+    alert(data);
     var data = JSON.parse(data);
     console.log(data);
-    alert(data);
+    alert(data.signature);
     window.wx.config({
         debug: true,
         appId: data.appId,
