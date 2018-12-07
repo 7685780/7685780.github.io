@@ -52,7 +52,7 @@ var page1 = {
 };
 var getConfig = function (callback) {
     $.ajax({
-        url: "http://116.62.126.38:3389/index.php/index/base/getHomeSign?url=love.ttwyx.cn",
+        url: "http://116.62.126.38:3389/index.php/index/base/getHomeSign?url=" + window.location.href,
         type: "get",
         success: function (data) {
             callback(data);
