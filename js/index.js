@@ -67,37 +67,57 @@ function shareweixin(data) {
         timestamp: data.timestamp,
         nonceStr: data.nonceStr,
         signature: data.signature,
-        jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage']
+        jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData']
     });
     wxShare();
 }
 function wxShare() {
     //检测api是否生效
     wx.ready(function () {
-        wx.checkJsApi({
-            jsApiList: [
-                'getNetworkType',
-                'previewImage'
-            ],
-            success: function (res) {
-                console.log(JSON.stringify(res));
+        //分享给好友
+        wx.updateAppMessageShareData({
+            title: '我们结婚啦', // 分享标题
+            desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀', // 分享描述
+            link: 'http://love.ttwyx.cn', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg', // 分享图标
+            success: function() {
+                // 设置成功
+            },
+        });
+        wx.updateTimelineShareData({ 
+            title: '我们结婚啦', // 分享标题
+            link: 'http://love.ttwyx.cn', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg', // 分享图标
+            success: function () {
+                // 设置成功
             }
         });
-        //分享给好友
-        wx.onMenuShareAppMessage({
-            title: '我们结婚啦',
-            desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
-            link: 'http://love.ttwyx.cn',
-            imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg'
-        });
-
-        //分享到朋友圈
-        wx.onMenuShareTimeline({
-            title: '我们结婚啦',
-            desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
-            link: 'http://love.ttwyx.cn',
-            imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg'
-        });
+        //wx.onMenuShareAppMessage({
+        //    title: '我们结婚啦',
+        //    desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
+        //    link: 'http://love.ttwyx.cn', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        //    imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg', // 分享图标
+        //    type: 'link', // 分享类型,music、video或link，不填默认为link
+        //    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        //    success: function () {
+        //        // 用户点击了分享后执行的回调函数
+        //    }
+        //});
+        //wx.onMenuShareTimeline({
+        //    title: '我们结婚啦', // 分享标题
+        //    link: 'http://love.ttwyx.cn', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        //    imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg', // 分享图标
+        //    success: function () {
+        //        // 用户点击了分享后执行的回调函数
+        //    },
+        //});
+        ////分享到朋友圈
+        //wx.onMenuShareTimeline({
+        //    title: '我们结婚啦',
+        //    desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
+        //    link: 'http://love.ttwyx.cn',
+        //    imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg'
+        //});
 
     });
 }
