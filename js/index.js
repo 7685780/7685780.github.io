@@ -52,7 +52,7 @@ var page1 = {
 };
 var getConfig = function (callback) {
     $.ajax({
-        url: "http://www.goxueche.com/api/configdata.php",
+        url: "http://116.62.126.38:3389/index.php/index/base/getHomeSign?url=love.ttwyx.cn",
         type: "get",
         success: function (data) {
             callback(data);
@@ -62,7 +62,6 @@ var getConfig = function (callback) {
 function shareweixin(data) {
     var data = JSON.parse(data);
     console.log(data);
-
     window.wx.config({
         debug: true,
         appId: data.appId,
