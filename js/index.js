@@ -60,10 +60,7 @@ var getConfig = function (callback) {
     })
 }
 function shareweixin(data) {
-    alert(data);
     var data = JSON.parse(data);
-    console.log(data);
-    alert(data.signature);
     window.wx.config({
         debug: true,
         appId: data.appId,
@@ -72,7 +69,6 @@ function shareweixin(data) {
         signature: data.signature,
         jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage']
     });
-
     wxShare();
 }
 function wxShare() {
