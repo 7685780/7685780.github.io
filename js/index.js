@@ -62,7 +62,7 @@ var getConfig = function (callback) {
 function shareweixin(data) {
     var data = JSON.parse(data);
     window.wx.config({
-        debug: true,
+        debug: false,
         appId: data.appId,
         timestamp: data.timestamp,
         nonceStr: data.nonceStr,
