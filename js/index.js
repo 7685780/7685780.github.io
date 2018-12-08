@@ -22,7 +22,7 @@ function _Out(e) {
 }
 
 function go() {
-    CsHttp.GoTo("http://map.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D%E7%A6%8F%E5%BB%BA%E7%92%9F%E6%B1%9F%E5%A4%A7%E9%85%92%E5%BA%97");
+    CsHttp.GoTo("http://j.map.baidu.com/RBsD2");
 }
 
 function love() {
@@ -85,8 +85,8 @@ function wxShare() {
         });
         //分享给好友
         wx.onMenuShareAppMessage({
-            title: '我们结婚啦',
-            desc: '陈帅先生及林露夫人：2019年01月01日下午11:00，假坐连江县璟江大酒店举行婚宴。届时 恭请光临  陈帅谨邀',
+            title: '陈帅&林露  我们结婚啦',
+            desc: '这是一封富有魔性的请柬你不点一下吗~',
             link: 'http://love.ttwyx.cn', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
             imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg', // 分享图标
             success: function () {
@@ -96,7 +96,7 @@ function wxShare() {
 
         //分享到朋友圈
         wx.onMenuShareTimeline({
-            title: '我们结婚啦',
+            title: '陈帅&林露  我们结婚啦',
             link: 'http://love.ttwyx.cn',
             imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg'
         });
@@ -150,7 +150,7 @@ $(document).ready(function () {
                     mySequence.push(o);
                 }
 
-                if (i == 16 || i == 17 || i == 25 || i == 33 || i == 34 || i == 32) {
+                if (i == 16 || i == 17 || i == 18 || i == 25 || i == 33 || i == 34 || i == 32) {
                     var o = { e: $("#pic" + i), p: doInAction[CsCommon._RadomNums(5)], o: { duration: 1650 } }
                     mySequence.push(o);
                     o = { e: $("#pic" + i), p: doOutAction[CsCommon._RadomNums(5)], o: { duration: 350 } }
@@ -228,7 +228,7 @@ $(document).ready(function () {
             o = { e: $("#page4"), p: 'transition.slideRightBigIn', o: { duration: 650 } }
             mySequence.push(o);
 
-            for (var i = 1; i < 5; i++) {
+            for (var i = 1; i < 7; i++) {
                 var o = { e: $("#page4pic" + i), p: doInAction[CsCommon._RadomNums(6)], o: { duration: 1650 } }
                 mySequence.push(o);
                 var o = { e: $("#page4pic" + i), p: doOutAction[CsCommon._RadomNums(6)], o: { duration: 1650 } }
