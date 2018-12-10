@@ -100,7 +100,15 @@ function wxShare() {
                 // 用户点击了分享后执行的回调函数
             }
         });
-
+        wx.onMenuShareQQ({
+            title: '陈帅&林露  我们结婚啦',
+            desc: '这是一封富有魔性的请柬你不点一下吗?!',
+            link: 'http://love.ttwyx.cn/ex/index.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://love.ttwyx.cn/img/me/ico.jpg', // 分享图标
+            success: function () {
+                // 用户点击了分享后执行的回调函数
+            }
+        });
         //分享到朋友圈
         wx.onMenuShareTimeline({
             title: '陈帅&林露  我们结婚啦',
