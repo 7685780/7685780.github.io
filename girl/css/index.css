@@ -20,14 +20,14 @@
 
 @font-face {
     font-family: FZFangSong;
-    src: url('/ttf/2.ttf');
+    src: url('ttf/2.ttf');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
     font-family: 'sysfont';
-    src: url('/ttf/1.ttf');
+    src: url('ttf/1.ttf');
     font-style: normal;
     font-weight: normal;
 }
